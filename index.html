@@ -1,0 +1,31 @@
+<html>
+<main>
+<link href="main.css" rel="stylesheet">
+    <header>
+        <title>synth</title>
+    </header>   
+
+    <body>
+        <div class=container>
+            <script src="synth.js" defer> </script>
+            <button id="start" onclick="play()"> Start </button>
+            <button id="stop" onclick = "stop()"> Stop</button>
+            <p>Oscillator One</p><br>
+            <p>Waveforms</p>
+            <div id='waveforms'>
+                <input type="radio" name="osc" value="sine" checked="checked"><label for="sine">sine</label>
+                
+                <input type="radio" name="osc" value="square"><label for="square">square</label><br>
+                
+                <input type="radio" name="osc" value="triangle"><label for="triangle">triangle</label>
+                
+                <input type="radio" name="osc" value="sawtooth"><label for="sawtooth">sawtooth</label>
+            </div> 
+            <p>Volume</p>
+            <input type ="range" id="volume" min="0.1" max="0.5" step="0.005" value="0.3">
+            <p>Frequency</p> 
+            <input type ="range" id="frequency-one" min="20" max="2000" step="0.005" value="440">
+        </div>
+    </body>
+</main>
+</html>
