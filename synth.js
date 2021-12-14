@@ -3,13 +3,20 @@ const audioContext = new (window.AudioContext || window.webkitAudioContext);
 
 // create oscillators
 
-let osc1 = audioContext.createOscillator() 
+let osc1 = audioContext.createOscillator()
+osc1.frequency.value = 220 
 let osc2 = audioContext.createOscillator()
+osc2.frequency.value = 219
 
 // when volume dial is interacted with it changes the gain value for oscillator 1
 
 document.getElementById('volume').addEventListener('click', changeVolume => {
     gainNode.gain.value = document.getElementById('volume').value
+    console.log(gainNode.gain.value)
+})
+
+document.getElementById('volume-2').addEventListener('click', changeVolume2 => {
+    gainNode2.gain.value = document.getElementById('volume-2').value
     console.log(gainNode.gain.value)
 })
 
@@ -19,30 +26,41 @@ document.getElementById('waveforms').addEventListener('click', changeWaveform =>
     osc1.type = document.querySelector('input[type="radio"][name="osc"]:checked').value
 })
 
-document.getElementById('frequency-one').addEventListener("click", changeFrequency => {
-    osc1.frequency.value = document.getElementById('frequency-one').value
+document.getElementById('waveforms-2').addEventListener('click', changeWaveform2 => {
+    osc2.type = document.querySelector('input[type="radio"][name="osc2"]:checked').value
+})
+
+// gets the value of the frequency sliders and applies that value to the osc freq
+
+document.getElementById('frequency').addEventListener("click", changeFrequency => {
+    osc1.frequency.value = document.getElementById('frequency').value
     
 })
 
+document.getElementById('frequency-2').addEventListener("click", changeFrequency2 => {
+    osc2.frequency.value = document.getElementById('frequency-2').value
+    
+})
 
 let gainNode = audioContext.createGain()
-gainNode.gain.value =0.1
+gainNode.gain.value =0.3
 gainNode.connect(audioContext.destination)
+
+let gainNode2 = audioContext.createGain()
+gainNode2.gain.value =0.3
+gainNode2.connect(audioContext.destination)
 
 function play(){
     osc1.connect(gainNode)
     osc1.start()
+    osc2.start()
     
 }
 
 function stop(){
     osc1.disconnect(gainNode)
+    osc2.disconnect(gainNode2)
 }
 
-let noteFreq = [ 92.50, 103.83, 116.54, 138.59, 155.56, 185.00, 207.65, 233.08, 277.18, 311.13, 369.99, 415.30, 466.16, 554.37, 622.25, 739.99, 830.61, 
-    932.33, 1108.73, 1244.51, 1479.98, 1661.22, 1864.66, 2217.46]
 
-function getRandomInt(max) {
-     return Math.floor(Math.random() * max);
-}
 
