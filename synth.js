@@ -99,6 +99,23 @@ document.getElementById('q2').addEventListener('click', changeq2 => {
     filter2.Q.value = document.getElementById('q2').value
 })
 
+let filter3 = audioContext.createBiquadFilter()
+filter3.type = 'lowpass'
+filter3.frequency.value = 4800
+filter3.connect(masterGain)
+
+document.getElementById('filter-3').addEventListener('click', changeFilter3 => {
+    filter3.type = document.querySelector('input[type="radio"][name="filter-3"]:checked').value
+})
+
+document.getElementById('cutoff-3').addEventListener('click', changeCutoff3 => {
+    filter3.frequency.value = document.getElementById('cutoff-3').value
+})
+
+document.getElementById('q3').addEventListener('click', changeq3 => {
+    filter3.Q.value = document.getElementById('q3').value
+})
+
 let gainNode = audioContext.createGain()
 gainNode.gain.value =0.3
 gainNode.connect(filter1)
@@ -109,7 +126,7 @@ gainNode2.connect(filter2)
 
 let gainNode3 = audioContext.createGain()
 gainNode3.gain.value =0.3
-gainNode3.connect(masterGain)
+gainNode3.connect(filter3)
 
 function colorChangeOn(button) {
     button.setAttribute('class', 'clicked')
