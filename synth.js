@@ -14,17 +14,17 @@ osc3.frequency.value = 221
 
 document.getElementById('volume').addEventListener('click', changeVolume => {
     gainNode.gain.value = document.getElementById('volume').value
-    console.log(gainNode.gain.value)
+    
 })
 
 document.getElementById('volume-2').addEventListener('click', changeVolume2 => {
     gainNode2.gain.value = document.getElementById('volume-2').value
-    console.log(gainNode.gain.value)
+    
 })
 
 document.getElementById('volume-3').addEventListener('click', changeVolume2 => {
     gainNode3.gain.value = document.getElementById('volume-3').value
-    console.log(gainNode.gain.value)
+    
 })
 
 // when waveforms are selected it changes the oscillator type i.e waveform
@@ -60,10 +60,13 @@ document.getElementById('frequency-3').addEventListener("click", changeFrequency
 
 
 
-// gain nodes for individual oscillators as well as a master gain
+// master gain
 
 let masterGain = audioContext.createGain()
 masterGain.gain.value = 0.5
+
+// filter nodes with variable type, Q cutoff
+// oscillators go into gain nodes, gain nodes go into filters, filters all feed into the master gain which is connected to audiocontext.destination
 
 let filter1 = audioContext.createBiquadFilter()
 filter1.type = 'lowpass'
@@ -116,6 +119,8 @@ document.getElementById('q3').addEventListener('click', changeq3 => {
     filter3.Q.value = document.getElementById('q3').value
 })
 
+// individual gain nodes one per voice
+
 let gainNode = audioContext.createGain()
 gainNode.gain.value =0.3
 gainNode.connect(filter1)
@@ -128,6 +133,8 @@ let gainNode3 = audioContext.createGain()
 gainNode3.gain.value =0.3
 gainNode3.connect(filter3)
 
+// this function just changes the color of the on buttons for the oscillators to show that a function in on
+
 function colorChangeOn(button) {
     button.setAttribute('class', 'clicked')
 }
@@ -138,9 +145,25 @@ function colorChangeOff(button) {
 
 
 
+// let delayNode = audioContext.createDelay()
+// delayNode.delayTime.value = 0.6
+// delayNode.connect(masterGain)
+
+// let delayFeedback = audioContext.createGain()
+// delayFeedback.gain.value = 0.2
+
+// delayNode.connect(delayFeedback)
+// delayFeedback.connect(delayNode)
+
+
+// starts oscillators and connects them to their respective gain nodes 
+// stop function just disconnects the master gain from the audiocontext.destination to stop audio playback
+
 function play(){
     masterGain.connect(audioContext.destination)
     osc1.connect(gainNode)
+    osc2.connect(gainNode2)
+    osc3.connect(gainNode3)
     osc1.start()
     osc2.start()
     osc3.start()

@@ -7,7 +7,7 @@
     
     <body>
         <div class="container" id="head">
-            <h1>DRONE</h1><button id="start" onclick="play(), colorChangeOn(document.getElementById('start'))"> Start </button>
+            <h1>DRONE</h1><button id="start" onclick="colorChangeOn(document.getElementById('start')), play()"> Start </button>
             <button id="stop" onclick = "stop(), colorChangeOff(document.getElementById(`start`))"> Stop</button> 
         </div>
         <div class=container id="container-1">
@@ -44,7 +44,7 @@
             <input type="range" id="q1" min="1" max="127" value="1">
             <p>Oscillator Two</p>
             <div id='check'>
-                <button id='osc-2-on' onclick="osc2.connect(gainNode2), colorChangeOn(document.getElementById('osc-2-on'))">ON</button>
+                <button id='osc-2-on' class="clicked" onclick="osc2.connect(gainNode2), colorChangeOn(document.getElementById('osc-2-on'))">ON</button>
                 <button id='osc-2-off' onclick='osc2.disconnect(gainNode2), colorChangeOff(document.getElementById(`osc-2-on`))'>OFF</button>
             </div>
             <p>Waveforms</p>
@@ -75,7 +75,7 @@
         <div class="container" id="container-2">
             <p>Oscillator Three</p>
             <div id='osc3-on-off'>
-                <button id='osc-3-on' onclick="osc3.connect(gainNode3), colorChangeOn(document.getElementById('osc-3-on'))">ON</button>
+                <button id='osc-3-on' class="clicked" onclick="osc3.connect(gainNode3), colorChangeOn(document.getElementById('osc-3-on'))">ON</button>
                 <button id='osc-3-off' onclick='osc3.disconnect(gainNode3), colorChangeOff(document.getElementById(`osc-3-on`))'>OFF</button>
             </div>
             <p>Waveforms</p>
