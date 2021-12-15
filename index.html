@@ -2,21 +2,21 @@
 <main>
 <link href="main.css" rel="stylesheet">
     <header>
-        <title>synth</title>
+        <title>DRONE</title>
     </header>   
     
     <body>
         <div class="container" id="head">
-            <h1>DRONE</h1><button id="start" onclick="play()"> Start </button>
-            <button id="stop" onclick = "stop()"> Stop</button> 
+            <h1>DRONE</h1><button id="start" onclick="play(), colorChangeOn(document.getElementById('start'))"> Start </button>
+            <button id="stop" onclick = "stop(), colorChangeOff(document.getElementById(`start`))"> Stop</button> 
         </div>
         <div class=container id="container-1">
             <script src="synth.js" defer> </script>
             
             <p>Oscillator One</p>
             <div id='osc1-on-off'>
-                <button id='osc-1-on' onclick="osc1.connect(gainNode)">ON</button>
-                <button id='osc-1-off' onclick='osc1.disconnect(gainNode)'>OFF</button>
+                <button id='osc-1-on' class="clicked" onclick="osc1.connect(gainNode), colorChangeOn(document.getElementById('osc-1-on'))">ON</button>
+                <button id='osc-1-off' onclick='osc1.disconnect(gainNode), colorChangeOff(document.getElementById(`osc-1-on`))'>OFF</button>
             </div>
             <p>Waveforms</p>
             <div id='waveforms'>
@@ -32,10 +32,20 @@
             <input type ="range" id="volume" min="0.1" max="0.5" step="0.005" value="0.3">
             <p>Frequency</p> 
             <input type ="range" id="frequency" min="20" max="2000" step="0.005" value="220">
+            <p>Filter type</p>
+            <div id="filter-1">
+                <input type="radio" name="filter-1" value="lowpass" checked="checked"><label for="lpf">LowPass</label>
+                <input type="radio" name="filter-1" value="highpass" ><label for="hpf">HighPass</label>
+                <input type="radio" name="filter-1" value="bandpass" ><label for="bpf">Bandpass</label>
+            </div>
+            <p>Cutoff</p>
+            <input type="range" id="cutoff-1" min="1" max="4800" value="4800">
+            <p>Resonance</p>
+            <input type="range" id="q1" min="1" max="127" value="1">
             <p>Oscillator Two</p>
             <div id='check'>
-                <button id='osc-2-on' onclick="osc2.connect(gainNode2)">ON</button>
-                <button id='osc-2-off' onclick='osc2.disconnect(gainNode2)'>OFF</button>
+                <button id='osc-2-on' onclick="osc2.connect(gainNode2), colorChangeOn(document.getElementById('osc-2-on'))">ON</button>
+                <button id='osc-2-off' onclick='osc2.disconnect(gainNode2), colorChangeOff(document.getElementById(`osc-2-on`))'>OFF</button>
             </div>
             <p>Waveforms</p>
             <div id='waveforms-2'>
@@ -56,8 +66,8 @@
         <div class="container" id="container-2">
             <p>Oscillator Three</p>
             <div id='osc3-on-off'>
-                <button id='osc-3-on' onclick="osc3.connect(gainNode3)">ON</button>
-                <button id='osc-3-off' onclick='osc3.disconnect(gainNode3)'>OFF</button>
+                <button id='osc-3-on' onclick="osc3.connect(gainNode3), colorChangeOn(document.getElementById('osc-3-on'))">ON</button>
+                <button id='osc-3-off' onclick='osc3.disconnect(gainNode3), colorChangeOff(document.getElementById(`osc-3-on`))'>OFF</button>
             </div>
             <p>Waveforms</p>
             <div id='waveforms-3'>

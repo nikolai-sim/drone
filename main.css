@@ -34,3 +34,15 @@ header {
     text-align: center;
 }
 
+input[type="range"] {
+    outline: none;
+    
+    
+}
+
+.clicked {
+    color: white;
+    background-color: rgb(92, 98, 105);
+    
+}
+

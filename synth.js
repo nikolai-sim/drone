@@ -58,14 +58,33 @@ document.getElementById('frequency-3').addEventListener("click", changeFrequency
     
 })
 
+
+
 // gain nodes for individual oscillators as well as a master gain
 
 let masterGain = audioContext.createGain()
 masterGain.gain.value = 0.5
 
+let filter1 = audioContext.createBiquadFilter()
+filter1.type = 'lowpass'
+filter1.frequency.value = 4800
+filter1.connect(masterGain)
+
+document.getElementById('filter-1').addEventListener('click', changeFilter1 => {
+    filter1.type = document.querySelector('input[type="radio"][name="filter-1"]:checked').value
+})
+
+document.getElementById('cutoff-1').addEventListener('click', changeCutoff1 => {
+    filter1.frequency.value = document.getElementById('cutoff-1').value
+})
+
+document.getElementById('q1').addEventListener('click', changeq1 => {
+    filter1.Q.value = document.getElementById('q1').value
+})
+
 let gainNode = audioContext.createGain()
 gainNode.gain.value =0.3
-gainNode.connect(masterGain)
+gainNode.connect(filter1)
 
 let gainNode2 = audioContext.createGain()
 gainNode2.gain.value =0.3
@@ -75,6 +94,13 @@ let gainNode3 = audioContext.createGain()
 gainNode3.gain.value =0.3
 gainNode3.connect(masterGain)
 
+function colorChangeOn(button) {
+    button.setAttribute('class', 'clicked')
+}
+
+function colorChangeOff(button) {
+    button.removeAttribute('class','clicked')
+}
 
 
 
@@ -84,13 +110,11 @@ function play(){
     osc1.start()
     osc2.start()
     osc3.start()
-    
+        
 }
 
 function stop(){
     masterGain.disconnect(audioContext.destination)
 
 }
-
-
 
