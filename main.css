@@ -3,15 +3,17 @@
 }
 
 .container {
-    width: 400px;
+    width: 480px;
     display: grid;
-    grid-template-columns: 200px 200px;
-    grid-area: 
+    grid-template-columns: 180px 180px;
+    gap: 20px;
+    grid-template-areas:
     "area area"
     "area area"
     "area area";
     margin: auto;
-    border: none;
+    padding: 30px;
+
 }
 
 p {
@@ -23,10 +25,12 @@ label {
     margin: 5px;
 }
 
-/* #check {
-    display: grid;
-    grid-template-columns: 50px 50px;
-    grid-template-areas: 
-    "box label"
-    "box label";
-} */
+button {
+    border: none;
+    padding: 10px;
+}
+
+header {
+    text-align: center;
+}
+
