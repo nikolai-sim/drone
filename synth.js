@@ -82,13 +82,30 @@ document.getElementById('q1').addEventListener('click', changeq1 => {
     filter1.Q.value = document.getElementById('q1').value
 })
 
+let filter2 = audioContext.createBiquadFilter()
+filter2.type = 'lowpass'
+filter2.frequency.value = 4800
+filter2.connect(masterGain)
+
+document.getElementById('filter-2').addEventListener('click', changeFilter2 => {
+    filter2.type = document.querySelector('input[type="radio"][name="filter-2"]:checked').value
+})
+
+document.getElementById('cutoff-2').addEventListener('click', changeCutoff2 => {
+    filter2.frequency.value = document.getElementById('cutoff-2').value
+})
+
+document.getElementById('q2').addEventListener('click', changeq2 => {
+    filter2.Q.value = document.getElementById('q2').value
+})
+
 let gainNode = audioContext.createGain()
 gainNode.gain.value =0.3
 gainNode.connect(filter1)
 
 let gainNode2 = audioContext.createGain()
 gainNode2.gain.value =0.3
-gainNode2.connect(masterGain)
+gainNode2.connect(filter2)
 
 let gainNode3 = audioContext.createGain()
 gainNode3.gain.value =0.3

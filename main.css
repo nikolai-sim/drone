@@ -13,6 +13,7 @@
     "area area";
     margin: auto;
     padding: 30px;
+    background-color: ghostwhite;
 
 }
 
@@ -46,3 +47,6 @@ input[type="range"] {
     
 }
 
+body {
+    background-color:rgb(92, 98, 105);
+}
