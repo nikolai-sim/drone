@@ -14,17 +14,17 @@ osc3.frequency.value = 221
 
 // when volume dial is interacted with it changes the gain value for oscillator 1
 
-document.getElementById('volume').addEventListener('click', changeVolume => {
+document.getElementById('volume').addEventListener('input', changeVolume => {
     gainNode.gain.value = document.getElementById('volume').value
     
 })
 
-document.getElementById('volume-2').addEventListener('click', changeVolume2 => {
+document.getElementById('volume-2').addEventListener('input', changeVolume2 => {
     gainNode2.gain.value = document.getElementById('volume-2').value
     
 })
 
-document.getElementById('volume-3').addEventListener('click', changeVolume2 => {
+document.getElementById('volume-3').addEventListener('input', changeVolume2 => {
     gainNode3.gain.value = document.getElementById('volume-3').value
     
 })
@@ -45,17 +45,17 @@ document.getElementById('waveforms-3').addEventListener('click', changeWaveform2
 
 // gets the value of the frequency sliders and applies that value to the osc freq
 
-document.getElementById('frequency').addEventListener("click", changeFrequency => {
+document.getElementById('frequency').addEventListener("input", changeFrequency => {
     osc1.frequency.value = document.getElementById('frequency').value
     
 })
 
-document.getElementById('frequency-2').addEventListener("click", changeFrequency2 => {
+document.getElementById('frequency-2').addEventListener("input", changeFrequency2 => {
     osc2.frequency.value = document.getElementById('frequency-2').value
     
 })
 
-document.getElementById('frequency-3').addEventListener("click", changeFrequency3 => {
+document.getElementById('frequency-3').addEventListener("input", changeFrequency3 => {
     osc3.frequency.value = document.getElementById('frequency-3').value
     
 })
@@ -79,11 +79,11 @@ document.getElementById('filter-1').addEventListener('click', changeFilter1 => {
     filter1.type = document.querySelector('input[type="radio"][name="filter-1"]:checked').value
 })
 
-document.getElementById('cutoff-1').addEventListener('click', changeCutoff1 => {
+document.getElementById('cutoff-1').addEventListener('input', changeCutoff1 => {
     filter1.frequency.value = document.getElementById('cutoff-1').value
 })
 
-document.getElementById('q1').addEventListener('click', changeq1 => {
+document.getElementById('q1').addEventListener('input', changeq1 => {
     filter1.Q.value = document.getElementById('q1').value
 })
 
@@ -96,11 +96,11 @@ document.getElementById('filter-2').addEventListener('click', changeFilter2 => {
     filter2.type = document.querySelector('input[type="radio"][name="filter-2"]:checked').value
 })
 
-document.getElementById('cutoff-2').addEventListener('click', changeCutoff2 => {
+document.getElementById('cutoff-2').addEventListener('input', changeCutoff2 => {
     filter2.frequency.value = document.getElementById('cutoff-2').value
 })
 
-document.getElementById('q2').addEventListener('click', changeq2 => {
+document.getElementById('q2').addEventListener('input', changeq2 => {
     filter2.Q.value = document.getElementById('q2').value
 })
 
@@ -113,11 +113,11 @@ document.getElementById('filter-3').addEventListener('click', changeFilter3 => {
     filter3.type = document.querySelector('input[type="radio"][name="filter-3"]:checked').value
 })
 
-document.getElementById('cutoff-3').addEventListener('click', changeCutoff3 => {
+document.getElementById('cutoff-3').addEventListener('input', changeCutoff3 => {
     filter3.frequency.value = document.getElementById('cutoff-3').value
 })
 
-document.getElementById('q3').addEventListener('click', changeq3 => {
+document.getElementById('q3').addEventListener('input', changeq3 => {
     filter3.Q.value = document.getElementById('q3').value
 })
 
