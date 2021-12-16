@@ -10,6 +10,8 @@ osc2.frequency.value = 219
 let osc3 = audioContext.createOscillator()
 osc3.frequency.value = 221
 
+
+
 // when volume dial is interacted with it changes the gain value for oscillator 1
 
 document.getElementById('volume').addEventListener('click', changeVolume => {
@@ -144,20 +146,8 @@ function colorChangeOff(button) {
 }
 
 
-
-// let delayNode = audioContext.createDelay()
-// delayNode.delayTime.value = 0.6
-// delayNode.connect(masterGain)
-
-// let delayFeedback = audioContext.createGain()
-// delayFeedback.gain.value = 0.2
-
-// delayNode.connect(delayFeedback)
-// delayFeedback.connect(delayNode)
-
-
 // starts oscillators and connects them to their respective gain nodes 
-// stop function just disconnects the master gain from the audiocontext.destination to stop audio playback
+// stop function just disconnects the master gain from the audiocontext.destination to stop audio
 
 function play(){
     masterGain.connect(audioContext.destination)
@@ -173,5 +163,22 @@ function play(){
 function stop(){
     masterGain.disconnect(audioContext.destination)
 
+}
+
+function autoScale(scale, voice) {
+    if (scale == '3rd') {
+        voice.frequency.value = (osc1.frequency.value / 4 ) * 5
+    }
+    else if (scale == '5th') {
+        voice.frequency.value = (osc1.frequency.value / 2) * 3
+    }
+
+    else if (scale == '6th') {
+        voice.frequency.value = (osc1.frequency.value / 3) * 5
+    }
+
+    else if (scale == '8th') {
+        voice.frequency.value = osc1.frequency.value * 2
+    }
 }
 
