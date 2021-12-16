@@ -180,5 +180,13 @@ function autoScale(scale, voice) {
     else if (scale == '8th') {
         voice.frequency.value = osc1.frequency.value * 2
     }
+
+    else if (scale == '16th') {
+        voice.frequency.value = osc1.frequency.value * 4
+    }
+
+    else if (scale == '32nd') {
+        voice.frequency.value = osc1.frequency.value * 8
+    }
 }
 
