@@ -57,3 +57,8 @@ footer {
     bottom: 10px;
     left: 10px;
 }
+
+button:active {
+    color: white;
+    background-color: rgb(92, 98, 105);
+}
