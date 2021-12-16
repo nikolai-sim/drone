@@ -17,6 +17,7 @@
             <div id='osc1-on-off'>
                 <button id='osc-1-on' class="clicked" onclick="osc1.connect(gainNode), colorChangeOn(document.getElementById('osc-1-on'))">ON</button>
                 <button id='osc-1-off' onclick='osc1.disconnect(gainNode), colorChangeOff(document.getElementById(`osc-1-on`))'>OFF</button>
+                
             </div>
             <p>Waveforms</p>
             <div id='waveforms'>
@@ -46,6 +47,7 @@
             <div id='check'>
                 <button id='osc-2-on' class="clicked" onclick="osc2.connect(gainNode2), colorChangeOn(document.getElementById('osc-2-on'))">ON</button>
                 <button id='osc-2-off' onclick='osc2.disconnect(gainNode2), colorChangeOff(document.getElementById(`osc-2-on`))'>OFF</button>
+                <button id="sync-1" onclick="autoScale('sync', osc2)">Sync</button>
             </div>
             <p>Waveforms</p>
             <div id='waveforms-2'>
@@ -85,6 +87,7 @@
             <div id='osc3-on-off'>
                 <button id='osc-3-on' class="clicked" onclick="osc3.connect(gainNode3), colorChangeOn(document.getElementById('osc-3-on'))">ON</button>
                 <button id='osc-3-off' onclick='osc3.disconnect(gainNode3), colorChangeOff(document.getElementById(`osc-3-on`))'>OFF</button>
+                <button id="sync-2" onclick="autoScale('sync', osc3)">Sync</button>
             </div>
             <p>Waveforms</p>
             <div id='waveforms-3'>

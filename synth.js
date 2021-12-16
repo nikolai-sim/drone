@@ -185,8 +185,8 @@ function autoScale(scale, voice) {
         voice.frequency.value = osc1.frequency.value * 4
     }
 
-    else if (scale == '32nd') {
-        voice.frequency.value = osc1.frequency.value * 8
+    else if (scale == 'sync') {
+        voice.frequency.value = osc1.frequency.value
     }
 }
 

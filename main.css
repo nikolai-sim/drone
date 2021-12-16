@@ -1,5 +1,6 @@
 * {
     font-family: monospace;
+
 }
 
 .container {
@@ -18,7 +19,9 @@
 }
 
 p {
-    font-size: 18px;
+    font-size: 15px;
+    letter-spacing: 5px;
+    
 }
 
 label {
@@ -61,4 +64,8 @@ footer {
 button:active {
     color: white;
     background-color: rgb(92, 98, 105);
+}
+
+h1 {
+    letter-spacing: 10px;
 }
